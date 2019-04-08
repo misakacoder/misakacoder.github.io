@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Misaka&#39;s Blog">
 <meta property="og:description" content="1.设置VMware编辑--&amp;gt;虚拟网络编辑器--&amp;gt;选择VMnet8--&amp;gt;修改模式为NET模式--&amp;gt;勾上将主机虚拟适配器连接到此网络，取消勾选使用本地DHCP服务--&amp;gt;点击NET设置--&amp;gt;记下子网ip，子网掩码，网关ip">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-08T04:36:05.059Z">
+<meta property="og:updated_time" content="2019-04-08T04:56:38.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="虚拟机安装CentOS">
 <meta name="twitter:description" content="1.设置VMware编辑--&amp;gt;虚拟网络编辑器--&amp;gt;选择VMnet8--&amp;gt;修改模式为NET模式--&amp;gt;勾上将主机虚拟适配器连接到此网络，取消勾选使用本地DHCP服务--&amp;gt;点击NET设置--&amp;gt;记下子网ip，子网掩码，网关ip">
@@ -384,7 +384,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-08 12:36:05" itemprop="dateModified" datetime="2019-04-08T12:36:05+08:00">2019-04-08</time>
+                <time title="修改时间：2019-04-08 12:56:38" itemprop="dateModified" datetime="2019-04-08T12:56:38+08:00">2019-04-08</time>
               
             
           </span>
@@ -499,6 +499,8 @@ sed -i &quot;s/SELINUX=enforcing/SELINUX=disabled/g&quot; /etc/selinux/config
 关闭防火墙：
 systemctl stop firewalld.service
 systemctl disable firewalld.service
+
+更新索引并更新系统：yum makecache fast &amp;&amp; yum update -y
 </code></pre><h2 id="5-安装java"><a href="#5-安装java" class="headerlink" title="5.安装java"></a>5.安装java</h2><pre><code>vim /etc/profile
 
 添加以下内容：
