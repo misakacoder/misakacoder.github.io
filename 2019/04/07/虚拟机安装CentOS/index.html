@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Misaka&#39;s Blog">
 <meta property="og:description" content="1.设置VMware编辑--&amp;gt;虚拟网络编辑器--&amp;gt;选择VMnet8--&amp;gt;修改模式为NET模式--&amp;gt;勾上将主机虚拟适配器连接到此网络，取消勾选使用本地DHCP服务--&amp;gt;点击NET设置--&amp;gt;记下子网ip，子网掩码，网关ip">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-09T09:13:18.748Z">
+<meta property="og:updated_time" content="2019-04-10T04:10:51.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="虚拟机安装CentOS">
 <meta name="twitter:description" content="1.设置VMware编辑--&amp;gt;虚拟网络编辑器--&amp;gt;选择VMnet8--&amp;gt;修改模式为NET模式--&amp;gt;勾上将主机虚拟适配器连接到此网络，取消勾选使用本地DHCP服务--&amp;gt;点击NET设置--&amp;gt;记下子网ip，子网掩码，网关ip">
@@ -384,7 +384,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-09 17:13:18" itemprop="dateModified" datetime="2019-04-09T17:13:18+08:00">2019-04-09</time>
+                <time title="修改时间：2019-04-10 12:10:51" itemprop="dateModified" datetime="2019-04-10T12:10:51+08:00">2019-04-10</time>
               
             
           </span>
@@ -482,8 +482,7 @@ name=CentOS-$releasever - Extras
 baseurl=https://mirrors.aliyun.com/centos/$releasever/extras/$basearch/
 gpgcheck=0
 
-添加扩展源：
-vim /etc/yum.repos.d/epel.repo
+添加扩展源：vim /etc/yum.repos.d/epel.repo
 阿里云扩展源：
 # epel.repo
 
@@ -550,7 +549,7 @@ rpm -ivh server.rpm
 修改数据库表名不区分大小写：
 vim /etc/my.cnf
 添加：lower_case_table_names =1
-重启mysql服务：systctl restart mysqld
+重启mysql服务：systemctl restart mysqld
 查看修改结果(登录mysql后执行)：show variables like &quot;%case%&quot;;
 
 修改数据库编码：
@@ -561,7 +560,7 @@ character-set-server=utf8
 collation-server=utf8_general_ci
 [client]
 default-character-set=utf8
-重启mysql服务：systctl restart mysqld
+重启mysql服务：systemctl restart mysqld
 查看修改结果(登录mysql后执行)：status
 </code></pre>
       
@@ -680,7 +679,7 @@ default-character-set=utf8
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
