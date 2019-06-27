@@ -99,14 +99,14 @@
   <meta name="description" content="由于RedHat7自带的yum需注册才可以使用，因此，我们用CentOS7中的yum代替。">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="修改RedHat7的yum">
+<meta property="og:title" content="解决RedHat自带yum不能用的问题">
 <meta property="og:url" content="https://misakacoder.github.io/2019/04/10/修改RedHat的yum/index.html">
 <meta property="og:site_name" content="Misaka&#39;s Blog">
 <meta property="og:description" content="由于RedHat7自带的yum需注册才可以使用，因此，我们用CentOS7中的yum代替。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-10T05:41:59.478Z">
+<meta property="og:updated_time" content="2019-06-27T02:04:50.098Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="修改RedHat7的yum">
+<meta name="twitter:title" content="解决RedHat自带yum不能用的问题">
 <meta name="twitter:description" content="由于RedHat7自带的yum需注册才可以使用，因此，我们用CentOS7中的yum代替。">
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>修改RedHat7的yum | Misaka's Blog</title>
+  <title>解决RedHat自带yum不能用的问题 | Misaka's Blog</title>
   
 
 
@@ -341,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">修改RedHat7的yum
+          <h1 class="post-title" itemprop="name headline">解决RedHat自带yum不能用的问题
 
               
             
@@ -367,12 +367,24 @@
                 
               
 
-              <time title="创建时间：2019-04-10 11:20:58 / 修改时间：13:41:59" itemprop="dateCreated datePublished" datetime="2019-04-10T11:20:58+08:00">2019-04-10</time>
+              <time title="创建时间：2019-04-10 11:20:58" itemprop="dateCreated datePublished" datetime="2019-04-10T11:20:58+08:00">2019-04-10</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-27 10:04:50" itemprop="dateModified" datetime="2019-06-27T10:04:50+08:00">2019-06-27</time>
               
             
           </span>
@@ -440,6 +452,7 @@ yum-utils-1.1.31-50.el7.noarch.rpm
 </code></pre><h2 id="2-修改基础源"><a href="#2-修改基础源" class="headerlink" title="2.修改基础源"></a>2.修改基础源</h2><pre><code>删除源并添加国内的源：
 rm -rf /etc/yum.repos.d/*
 vim /etc/yum.repos.d/CentOS-Base.repo
+
 阿里云源：
 # CentOS-Base.repo
 
@@ -459,6 +472,7 @@ baseurl=https://mirrors.aliyun.com/centos/7/extras/$basearch/
 gpgcheck=0
 
 添加扩展源：vim /etc/yum.repos.d/epel.repo
+
 阿里云扩展源：
 # epel.repo
 

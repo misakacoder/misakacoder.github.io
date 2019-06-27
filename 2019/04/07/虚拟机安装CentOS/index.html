@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="1.设置VMware编辑--&amp;gt;虚拟网络编辑器--&amp;gt;选择VMnet8--&amp;gt;修改模式为NET模式--&amp;gt;勾上将主机虚拟适配器连接到此网络，取消勾选使用本地DHCP服务--&amp;gt;点击NET设置--&amp;gt;记下子网ip，子网掩码，网关ip">
+  <meta name="description" content="1.设置VMware编辑--&amp;gt;虚拟网络编辑器--&amp;gt;选择VMnet8--&amp;gt;修改模式为NAT模式--&amp;gt;勾上将主机虚拟适配器连接到此网络，取消勾选使用本地DHCP服务--&amp;gt;点击NET设置--&amp;gt;记下子网ip，子网掩码，网关ip">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="虚拟机安装CentOS">
 <meta property="og:url" content="https://misakacoder.github.io/2019/04/07/虚拟机安装CentOS/index.html">
 <meta property="og:site_name" content="Misaka&#39;s Blog">
-<meta property="og:description" content="1.设置VMware编辑--&amp;gt;虚拟网络编辑器--&amp;gt;选择VMnet8--&amp;gt;修改模式为NET模式--&amp;gt;勾上将主机虚拟适配器连接到此网络，取消勾选使用本地DHCP服务--&amp;gt;点击NET设置--&amp;gt;记下子网ip，子网掩码，网关ip">
+<meta property="og:description" content="1.设置VMware编辑--&amp;gt;虚拟网络编辑器--&amp;gt;选择VMnet8--&amp;gt;修改模式为NAT模式--&amp;gt;勾上将主机虚拟适配器连接到此网络，取消勾选使用本地DHCP服务--&amp;gt;点击NET设置--&amp;gt;记下子网ip，子网掩码，网关ip">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-10T04:10:51.871Z">
+<meta property="og:updated_time" content="2019-06-27T02:06:33.040Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="虚拟机安装CentOS">
-<meta name="twitter:description" content="1.设置VMware编辑--&amp;gt;虚拟网络编辑器--&amp;gt;选择VMnet8--&amp;gt;修改模式为NET模式--&amp;gt;勾上将主机虚拟适配器连接到此网络，取消勾选使用本地DHCP服务--&amp;gt;点击NET设置--&amp;gt;记下子网ip，子网掩码，网关ip">
+<meta name="twitter:description" content="1.设置VMware编辑--&amp;gt;虚拟网络编辑器--&amp;gt;选择VMnet8--&amp;gt;修改模式为NAT模式--&amp;gt;勾上将主机虚拟适配器连接到此网络，取消勾选使用本地DHCP服务--&amp;gt;点击NET设置--&amp;gt;记下子网ip，子网掩码，网关ip">
 
 
 
@@ -384,7 +384,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-10 12:10:51" itemprop="dateModified" datetime="2019-04-10T12:10:51+08:00">2019-04-10</time>
+                <time title="修改时间：2019-06-27 10:06:33" itemprop="dateModified" datetime="2019-06-27T10:06:33+08:00">2019-06-27</time>
               
             
           </span>
@@ -436,7 +436,7 @@
       
 
       
-        <h2 id="1-设置VMware"><a href="#1-设置VMware" class="headerlink" title="1.设置VMware"></a>1.设置VMware</h2><pre><code>编辑--&gt;虚拟网络编辑器--&gt;选择VMnet8--&gt;修改模式为NET模式--&gt;勾上将主机虚拟适配器连接到此网络，取消勾选使用本地DHCP服务--&gt;点击NET设置--&gt;记下子网ip，子网掩码，网关ip
+        <h2 id="1-设置VMware"><a href="#1-设置VMware" class="headerlink" title="1.设置VMware"></a>1.设置VMware</h2><pre><code>编辑--&gt;虚拟网络编辑器--&gt;选择VMnet8--&gt;修改模式为NAT模式--&gt;勾上将主机虚拟适配器连接到此网络，取消勾选使用本地DHCP服务--&gt;点击NET设置--&gt;记下子网ip，子网掩码，网关ip
 </code></pre><a id="more"></a>
 <h2 id="2-修改CentOS的ip地址为静态ip地址"><a href="#2-修改CentOS的ip地址为静态ip地址" class="headerlink" title="2.修改CentOS的ip地址为静态ip地址"></a>2.修改CentOS的ip地址为静态ip地址</h2><pre><code>vim /etc/sysconfig/network-scripts/ifcfg-xxx
 
@@ -464,6 +464,7 @@ PasswordAuthentication yes
 </code></pre><h2 id="4-更换基础源和其他设置"><a href="#4-更换基础源和其他设置" class="headerlink" title="4.更换基础源和其他设置"></a>4.更换基础源和其他设置</h2><pre><code>删除源并添加国内的源：
 rm -rf /etc/yum.repos.d/*
 vim /etc/yum.repos.d/CentOS-Base.repo
+
 阿里云源：
 # CentOS-Base.repo
 
@@ -483,6 +484,7 @@ baseurl=https://mirrors.aliyun.com/centos/$releasever/extras/$basearch/
 gpgcheck=0
 
 添加扩展源：vim /etc/yum.repos.d/epel.repo
+
 阿里云扩展源：
 # epel.repo
 
@@ -531,12 +533,12 @@ http://mirror.centos.org/centos/7/os/x86_64/Packages/net-tools-2.0-0.24.20131004
 http://mirror.centos.org/centos/7/os/x86_64/Packages/libaio-0.3.109-13.el7.x86_64.rpm
 
 安装：
-rpm -ivh common.rpm
-rpm -ivh libs.rpm
-rpm -ivh client.rpm
+rpm -ivh mysql-community-common.rpm
+rpm -ivh mysql-community-libs.rpm
+rpm -ivh mysql-community-client.rpm
 rpm -ivh libaio.rpm
 rpm -ivh net-tools.rpm
-rpm -ivh server.rpm
+rpm -ivh mysql-community-server.rpm
 
 初始化数据库：mysqld --initialize --user=mysql
 

@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Misaka&#39;s Blog">
 <meta property="og:description" content="1.Dockerfile指定基础镜像：FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt;  将文件添加到容器内：ADD &amp;lt;文件绝对路径 or 文件相对路径 or 网络文件路径&amp;gt; &amp;lt;镜像内部路径&amp;gt;  将文件添加到容器内：COPY &amp;lt;文件绝对路径 or 文件相对路径&amp;gt; &amp;lt;镜像内部路径&amp;gt;  设置环境变量：ENV &amp;lt;key1&amp;gt;=&amp;lt;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-09T07:07:20.184Z">
+<meta property="og:updated_time" content="2019-06-27T02:00:39.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker常用命令">
 <meta name="twitter:description" content="1.Dockerfile指定基础镜像：FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt;  将文件添加到容器内：ADD &amp;lt;文件绝对路径 or 文件相对路径 or 网络文件路径&amp;gt; &amp;lt;镜像内部路径&amp;gt;  将文件添加到容器内：COPY &amp;lt;文件绝对路径 or 文件相对路径&amp;gt; &amp;lt;镜像内部路径&amp;gt;  设置环境变量：ENV &amp;lt;key1&amp;gt;=&amp;lt;">
@@ -384,7 +384,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-09 15:07:20" itemprop="dateModified" datetime="2019-04-09T15:07:20+08:00">2019-04-09</time>
+                <time title="修改时间：2019-06-27 10:00:39" itemprop="dateModified" datetime="2019-06-27T10:00:39+08:00">2019-06-27</time>
               
             
           </span>
@@ -479,9 +479,11 @@ ps：要删除容器，必须先停止容器，要删除镜像，必须先删除
 curl -L https://github.com/docker/compose/releases/download/1.24.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 </code></pre><p>docker-compose.yml示例：<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">"3.3"</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  docker-micro-service-misaka:</span>  <span class="comment">#服务名</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">"docker-micro-service-misaka:1.0"</span>  <span class="comment">#镜像名</span></span><br><span class="line"><span class="attr">    container_name:</span> <span class="string">misaka</span>  <span class="comment">#容器名</span></span><br><span class="line"><span class="attr">    build:</span>  <span class="comment">#构建镜像</span></span><br><span class="line"><span class="attr">      context:</span> <span class="string">.</span>  <span class="comment">#指定Dockerfile路径为本路径</span></span><br><span class="line"><span class="attr">      dockerfile:</span> <span class="string">Dockerfile-misaka</span>  <span class="comment">#指定Dockerfile文件名</span></span><br><span class="line"><span class="attr">    env_file:</span>  <span class="comment">#指定环境变量文件</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">.env-misaka</span></span><br><span class="line"><span class="attr">    ports:</span>  <span class="comment">#端口映射，将容器的8080端口映射到本机的8080端口，前面为本机端口，后面为容器端口</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"8080:8080"</span></span><br><span class="line"><span class="attr">  docker-micro-service-sagiri:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">"docker-micro-service-sagiri:1.0"</span></span><br><span class="line"><span class="attr">    container_name:</span> <span class="string">sagiri</span></span><br><span class="line"><span class="attr">    build:</span></span><br><span class="line"><span class="attr">      context:</span> <span class="string">.</span></span><br><span class="line"><span class="attr">      dockerfile:</span> <span class="string">Dockerfile-sagiri</span></span><br><span class="line"><span class="attr">    env_file:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">.env-sagiri</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"8081:8081"</span></span><br></pre></td></tr></table></figure></p>
-<pre><code>构建命令(在docker-compose.yml目录下执行)：docker-compose up -d
+<pre><code>构建镜像：docker-compose build
 
-构建命令(指定docker-compose.yml)：docker-compose -f /home/docker/docker-compose.yml up -d
+构建镜像并启动容器(在docker-compose.yml目录下执行)：docker-compose up -d
+
+构建镜像并启动容器(指定docker-compose.yml)：docker-compose -f /home/docker/docker-compose.yml up -d
 
 docker-compose查看容器： docker-compose -f /home/docker/docker-compose.yml ps
 
@@ -491,7 +493,11 @@ docker-compose重启容器：docker-compose -f /home/docker/docker-compose.yml r
 
 docker-compose停止容器：docker-compose -f /home/docker/docker-compose.yml stop
 
+docker-compose停止容器、删除容器：docker-compose -f /home/docker/docker-compose.yml down
+
 docker-compose停止容器、删除容器、删除镜像：docker-compose -f /home/docker/docker-compose.yml down --rmi all
+
+docker-compose停止容器、删除容器、删除镜像名为空的镜像：docker-compose -f /home/docker/docker-compose.yml down --rmi local
 </code></pre><h2 id="4-docker安装mysql"><a href="#4-docker安装mysql" class="headerlink" title="4.docker安装mysql"></a>4.docker安装mysql</h2><pre><code>在https://hub.docker.com/_/mysql?tab=tags上查看mysql镜像有哪些版本
 
 拉取mysql镜像：docker pull mysql:&lt;镜像版本号&gt;
@@ -549,8 +555,8 @@ mysql表名不区分大小写：--lower_case_table_names=1
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/10/修改RedHat的yum/" rel="prev" title="修改RedHat7的yum">
-                修改RedHat7的yum <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/10/修改RedHat的yum/" rel="prev" title="解决RedHat自带yum不能用的问题">
+                解决RedHat自带yum不能用的问题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
