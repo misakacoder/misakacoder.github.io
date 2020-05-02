@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="1.Dockerfile指定基础镜像：FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt;  将文件添加到容器内：ADD &amp;lt;文件绝对路径 or 文件相对路径 or 网络文件路径&amp;gt; &amp;lt;镜像内部路径&amp;gt;  将文件添加到容器内：COPY &amp;lt;文件绝对路径 or 文件相对路径&amp;gt; &amp;lt;镜像内部路径&amp;gt;  设置环境变量：ENV &amp;lt;key1&amp;gt;=&amp;lt;">
-<meta name="keywords" content="Docker">
+  <meta name="description" content="1.下载Elasticsearchelasticsearch-7.6.2kibana-7.6.2">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker常用命令">
-<meta property="og:url" content="https://misakacoder.github.io/2019/04/08/Docker常用命令/index.html">
+<meta property="og:title" content="Elasticsearch集群部署">
+<meta property="og:url" content="https://misakacoder.github.io/2020/05/01/Elasticsearch集群部署/index.html">
 <meta property="og:site_name" content="Misaka&#39;s Blog">
-<meta property="og:description" content="1.Dockerfile指定基础镜像：FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt;  将文件添加到容器内：ADD &amp;lt;文件绝对路径 or 文件相对路径 or 网络文件路径&amp;gt; &amp;lt;镜像内部路径&amp;gt;  将文件添加到容器内：COPY &amp;lt;文件绝对路径 or 文件相对路径&amp;gt; &amp;lt;镜像内部路径&amp;gt;  设置环境变量：ENV &amp;lt;key1&amp;gt;=&amp;lt;">
+<meta property="og:description" content="1.下载Elasticsearchelasticsearch-7.6.2kibana-7.6.2">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-27T02:00:39.479Z">
+<meta property="og:updated_time" content="2020-05-02T02:57:56.697Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker常用命令">
-<meta name="twitter:description" content="1.Dockerfile指定基础镜像：FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt;  将文件添加到容器内：ADD &amp;lt;文件绝对路径 or 文件相对路径 or 网络文件路径&amp;gt; &amp;lt;镜像内部路径&amp;gt;  将文件添加到容器内：COPY &amp;lt;文件绝对路径 or 文件相对路径&amp;gt; &amp;lt;镜像内部路径&amp;gt;  设置环境变量：ENV &amp;lt;key1&amp;gt;=&amp;lt;">
+<meta name="twitter:title" content="Elasticsearch集群部署">
+<meta name="twitter:description" content="1.下载Elasticsearchelasticsearch-7.6.2kibana-7.6.2">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://misakacoder.github.io/2019/04/08/Docker常用命令/">
+  <link rel="canonical" href="https://misakacoder.github.io/2020/05/01/Elasticsearch集群部署/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>Docker常用命令 | Misaka's Blog</title>
+  <title>Elasticsearch集群部署 | Misaka's Blog</title>
   
 
 
@@ -324,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://misakacoder.github.io/2019/04/08/Docker常用命令/">
+    <link itemprop="mainEntityOfPage" href="https://misakacoder.github.io/2020/05/01/Elasticsearch集群部署/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Misaka">
@@ -341,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Docker常用命令
+          <h1 class="post-title" itemprop="name headline">Elasticsearch集群部署
 
               
             
@@ -367,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2019-04-08 15:02:15" itemprop="dateCreated datePublished" datetime="2019-04-08T15:02:15+08:00">2019-04-08</time>
+              <time title="创建时间：2020-05-01 17:24:12" itemprop="dateCreated datePublished" datetime="2020-05-01T17:24:12+08:00">2020-05-01</time>
             
 
             
@@ -384,7 +384,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-27 10:00:39" itemprop="dateModified" datetime="2019-06-27T10:00:39+08:00">2019-06-27</time>
+                <time title="修改时间：2020-05-02 10:57:56" itemprop="dateModified" datetime="2020-05-02T10:57:56+08:00">2020-05-02</time>
               
             
           </span>
@@ -436,79 +436,34 @@
       
 
       
-        <h2 id="1-Dockerfile"><a href="#1-Dockerfile" class="headerlink" title="1.Dockerfile"></a>1.Dockerfile</h2><pre><code>指定基础镜像：FROM &lt;image&gt;:&lt;tag&gt;
+        <h2 id="1-下载Elasticsearch"><a href="#1-下载Elasticsearch" class="headerlink" title="1.下载Elasticsearch"></a>1.下载Elasticsearch</h2><p><a href="https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.6.2-windows-x86_64.zip" target="_blank" rel="noopener">elasticsearch-7.6.2</a><br><a href="https://artifacts.elastic.co/downloads/kibana/kibana-7.6.2-windows-x86_64.zip" target="_blank" rel="noopener">kibana-7.6.2</a><br><a id="more"></a></p>
+<h2 id="2-搭建集群"><a href="#2-搭建集群" class="headerlink" title="2.搭建集群"></a>2.搭建集群</h2><pre><code>解压elasticsearch，复制3份，如下
+elasticsearch-7.6.2\elasticsearch-7.6.2-node1-9300
+elasticsearch-7.6.2\elasticsearch-7.6.2-node2-8300
+elasticsearch-7.6.2\elasticsearch-7.6.2-node3-7300
 
-将文件添加到容器内：ADD &lt;文件绝对路径 or 文件相对路径 or 网络文件路径&gt; &lt;镜像内部路径&gt;
+编辑elasticsearch-7.6.2\elasticsearch-7.6.2-node1-9300\config\jvm.options，修改 -Xms256m -Xmx256m，可根据电脑内存自行调整
+编辑elasticsearch-7.6.2\elasticsearch-7.6.2-node1-9300\config\elasticsearch.yml，修改如下
+</code></pre><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 集群名称</span></span><br><span class="line"><span class="string">cluster.name:</span> <span class="string">elasticsearch</span></span><br><span class="line"><span class="comment"># 节点名称</span></span><br><span class="line"><span class="string">node.name:</span> <span class="string">node1</span></span><br><span class="line"><span class="comment">#配置ip，0.0.0.0表示自适应电脑ip</span></span><br><span class="line"><span class="string">network.host:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line"><span class="comment"># http端口</span></span><br><span class="line"><span class="string">http.port:</span> <span class="number">9200</span></span><br><span class="line"><span class="comment"># 节点之间通讯端口</span></span><br><span class="line"><span class="string">transport.tcp.port:</span> <span class="number">9300</span></span><br><span class="line"><span class="comment"># 跨域</span></span><br><span class="line"><span class="string">http.cors.enabled:</span> <span class="literal">true</span></span><br><span class="line"><span class="string">http.cors.allow-origin:</span> <span class="string">"*"</span></span><br><span class="line"><span class="string">http.cors.allow-headers:</span> <span class="string">Authorization</span></span><br><span class="line"><span class="comment"># 其它节点列表</span></span><br><span class="line"><span class="string">discovery.seed_hosts:</span> <span class="string">["127.0.0.1:8300",</span> <span class="string">"127.0.0.1:7300"</span><span class="string">]</span></span><br><span class="line"><span class="comment"># 集群初始化master节点列表</span></span><br><span class="line"><span class="string">cluster.initial_master_nodes:</span> <span class="string">["node1"]</span></span><br><span class="line"><span class="comment"># 开启安全认证</span></span><br><span class="line"><span class="string">xpack.security.enabled:</span> <span class="literal">true</span></span><br><span class="line"><span class="string">xpack.security.transport.ssl.enabled:</span> <span class="literal">true</span></span><br><span class="line"><span class="string">xpack.security.transport.ssl.verification_mode:</span> <span class="string">certificate</span></span><br><span class="line"><span class="string">xpack.security.transport.ssl.keystore.path:</span> <span class="string">elastic-certificates.p12</span></span><br><span class="line"><span class="string">xpack.security.transport.ssl.truststore.path:</span> <span class="string">elastic-certificates.p12</span></span><br></pre></td></tr></table></figure>
+<pre><code>执行 elasticsearch-7.6.2\elasticsearch-7.6.2-node1-9300\bin\elasticsearch-certutil.bat cert 生成证书，第一个输入项表示证书存储位置，第二个输入项是证书密码
+执行 elasticsearch-7.6.2\elasticsearch-7.6.2-node1-9300\bin\elasticsearch-keystore.bat create 生成密钥库文件
+执行 elasticsearch-7.6.2\elasticsearch-7.6.2-node1-9300\bin\elasticsearch-keystore.bat add xpack.security.transport.ssl.keystore.secure_password 输入证书的密码
+执行 elasticsearch-7.6.2\elasticsearch-7.6.2-node1-9300\bin\elasticsearch-keystore.bat add xpack.security.transport.ssl.truststore.secure_password 输入证书的密码
+将证书拷贝到elasticsearch-7.6.2\elasticsearch-7.6.2-node1-9300\config目录下，将config目录下的证书，jvm.options，elasticsearch.yml，elasticsearch.keystore 这4个文件依次拷贝到node2和node3的config目录下，并对elasticsearch.yml里的节点名称和其它节点列表做相应修改
 
-将文件添加到容器内：COPY &lt;文件绝对路径 or 文件相对路径&gt; &lt;镜像内部路径&gt;
+启动 elasticsearch-7.6.2\elasticsearch-7.6.2-node1-9300\bin\elasticsearch.bat
+启动 elasticsearch-7.6.2\elasticsearch-7.6.2-node2-8300\bin\elasticsearch.bat
+启动 elasticsearch-7.6.2\elasticsearch-7.6.2-node3-7300\bin\elasticsearch.bat
 
-设置环境变量：ENV &lt;key1&gt;=&lt;value1&gt; &lt;key2&gt;=&lt;value2&gt; ...
+执行 elasticsearch-7.6.2\elasticsearch-7.6.2-node1-9300\bin\elasticsearch-setup-passwords.bat interactive 修改集群密码
+</code></pre><h2 id="3-配置kibana"><a href="#3-配置kibana" class="headerlink" title="3.配置kibana"></a>3.配置kibana</h2><pre><code>解压kibana，修改kibana-7.6.2\config\kibana.yml，修改如下
+</code></pre><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">elasticsearch.username:</span> <span class="string">"elastic"</span></span><br><span class="line"><span class="string">elasticsearch.password:</span> <span class="string">"elastic"</span></span><br><span class="line"><span class="string">i18n.locale:</span> <span class="string">"zh-CN"</span></span><br></pre></td></tr></table></figure>
+<pre><code>启动 kibana-7.6.2\bin\kibana.bat
 
-容器启动时执行命令：CMD [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]
-
-暴露容器运行时的监听端口给外部：EXPOSE &lt;端口号&gt;
-</code></pre><a id="more"></a>
-<h2 id="2-docker命令"><a href="#2-docker命令" class="headerlink" title="2.docker命令"></a>2.docker命令</h2><pre><code>搜索镜像：docker search &lt;镜像名&gt;:&lt;镜像版本号&gt;
-
-拉取镜像(不指定版本号则拉取latest)：docker pull &lt;镜像名&gt;:&lt;镜像版本号&gt;
-
-创建镜像(在Dockerfile所在路径下执行)：docker build -t &lt;镜像名&gt;:&lt;镜像版本号&gt; .
-
-查看所有镜像：docker images
-
-创建容器：docker run --name &lt;指定名称，可以不填&gt; -d -p &lt;外部端口&gt;:&lt;容器开放端口&gt; &lt;镜像名&gt;:&lt;镜像版本号&gt;
-
-查看运行中的容器：docker ps
-
-查看所有容器：docker ps -a
-
-进入容器内部：docker exec -i -t &lt;容器名称 or 容器ID&gt; /bin/bash
-
-启动容器：docker start &lt;容器名称 or 容器ID&gt;
-
-停止容器：docker stop &lt;容器名称 or 容器ID&gt;
-
-重启容器：docker restart &lt;容器名称 or 容器ID&gt;
-
-删除容器：docker rm &lt;容器名称 or 容器ID&gt;
-
-删除镜像：docker rmi &lt;容器名称 or 容器ID&gt;
-
-ps：要删除容器，必须先停止容器，要删除镜像，必须先删除容器
-</code></pre><h2 id="3-使用docker-compose构建镜像"><a href="#3-使用docker-compose构建镜像" class="headerlink" title="3.使用docker-compose构建镜像"></a>3.使用docker-compose构建镜像</h2><pre><code>安装docker-compose：
-curl -L https://github.com/docker/compose/releases/download/1.24.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-</code></pre><p>docker-compose.yml示例：<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">"3.3"</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  docker-micro-service-misaka:</span>  <span class="comment">#服务名</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">"docker-micro-service-misaka:1.0"</span>  <span class="comment">#镜像名</span></span><br><span class="line"><span class="attr">    container_name:</span> <span class="string">misaka</span>  <span class="comment">#容器名</span></span><br><span class="line"><span class="attr">    build:</span>  <span class="comment">#构建镜像</span></span><br><span class="line"><span class="attr">      context:</span> <span class="string">.</span>  <span class="comment">#指定Dockerfile路径为本路径</span></span><br><span class="line"><span class="attr">      dockerfile:</span> <span class="string">Dockerfile-misaka</span>  <span class="comment">#指定Dockerfile文件名</span></span><br><span class="line"><span class="attr">    env_file:</span>  <span class="comment">#指定环境变量文件</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">.env-misaka</span></span><br><span class="line"><span class="attr">    ports:</span>  <span class="comment">#端口映射，将容器的8080端口映射到本机的8080端口，前面为本机端口，后面为容器端口</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"8080:8080"</span></span><br><span class="line"><span class="attr">  docker-micro-service-sagiri:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">"docker-micro-service-sagiri:1.0"</span></span><br><span class="line"><span class="attr">    container_name:</span> <span class="string">sagiri</span></span><br><span class="line"><span class="attr">    build:</span></span><br><span class="line"><span class="attr">      context:</span> <span class="string">.</span></span><br><span class="line"><span class="attr">      dockerfile:</span> <span class="string">Dockerfile-sagiri</span></span><br><span class="line"><span class="attr">    env_file:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">.env-sagiri</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"8081:8081"</span></span><br></pre></td></tr></table></figure></p>
-<pre><code>构建镜像：docker-compose build
-
-构建镜像并启动容器(在docker-compose.yml目录下执行)：docker-compose up -d
-
-构建镜像并启动容器(指定docker-compose.yml)：docker-compose -f /home/docker/docker-compose.yml up -d
-
-docker-compose查看容器： docker-compose -f /home/docker/docker-compose.yml ps
-
-docker-compose启动容器：docker-compose -f /home/docker/docker-compose.yml start
-
-docker-compose重启容器：docker-compose -f /home/docker/docker-compose.yml restart
-
-docker-compose停止容器：docker-compose -f /home/docker/docker-compose.yml stop
-
-docker-compose停止容器、删除容器：docker-compose -f /home/docker/docker-compose.yml down
-
-docker-compose停止容器、删除容器、删除镜像：docker-compose -f /home/docker/docker-compose.yml down --rmi all
-
-docker-compose停止容器、删除容器、删除镜像名为空的镜像：docker-compose -f /home/docker/docker-compose.yml down --rmi local
-</code></pre><h2 id="4-docker安装mysql"><a href="#4-docker安装mysql" class="headerlink" title="4.docker安装mysql"></a>4.docker安装mysql</h2><pre><code>在https://hub.docker.com/_/mysql?tab=tags上查看mysql镜像有哪些版本
-
-拉取mysql镜像：docker pull mysql:&lt;镜像版本号&gt;
-
-创建mysql容器：docker run --name mysql -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql:&lt;镜像版本号&gt; --character-set-server=utf8 --collation-server=utf8_bin --lower_case_table_names=1
-
-ps：
-设置root用户的密码为root：-e MYSQL_ROOT_PASSWORD=root
-解决mysql中文乱码：--character-set-server=utf8
-解决mysql中文乱码：--collation-server=utf8_bin
-mysql表名不区分大小写：--lower_case_table_names=1
+不建议配置用户明文信息，建议如下方式
+kibana-7.6.2\bin\kibana-keystore.bat create
+kibana-7.6.2\bin\kibana-keystore.bat add elasticsearch.username
+kibana-7.6.2\bin\kibana-keystore.bat add elasticsearch.password
 </code></pre>
       
     </div>
@@ -532,7 +487,7 @@ mysql表名不区分大小写：--lower_case_table_names=1
       
         <div class="post-tags">
           
-            <a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
           
         </div>
       
@@ -545,8 +500,8 @@ mysql表名不区分大小写：--lower_case_table_names=1
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/07/虚拟机安装CentOS/" rel="next" title="虚拟机安装CentOS">
-                <i class="fa fa-chevron-left"></i> 虚拟机安装CentOS
+              <a href="/2020/04/09/Maven常用插件/" rel="next" title="Maven常用插件">
+                <i class="fa fa-chevron-left"></i> Maven常用插件
               </a>
             
           </div>
@@ -554,10 +509,6 @@ mysql表名不区分大小写：--lower_case_table_names=1
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/10/修改RedHat的yum/" rel="prev" title="修改RedHat的yum">
-                修改RedHat的yum <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -710,7 +661,7 @@ mysql表名不区分大小写：--lower_case_table_names=1
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Dockerfile"><span class="nav-text">1.Dockerfile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-docker命令"><span class="nav-text">2.docker命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-使用docker-compose构建镜像"><span class="nav-text">3.使用docker-compose构建镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-docker安装mysql"><span class="nav-text">4.docker安装mysql</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-下载Elasticsearch"><span class="nav-text">1.下载Elasticsearch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-搭建集群"><span class="nav-text">2.搭建集群</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-配置kibana"><span class="nav-text">3.配置kibana</span></a></li></ol></div>
             
 
           </div>
